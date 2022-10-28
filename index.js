@@ -29,13 +29,28 @@ const recipeApp = async function() {
     const x = await mongoose.connect(MONGODB_URI)
     console.log(`connected to ${x.connection.name}`)
 
+    addRecipe('Cheesecake', 'Greek')
+
   } catch (error) {
     console.log(error)
   }
 }
 
+
+
+const addRecipe = async function(recipeTitle, recipeCuisine) {
+  try {
+    const newRecipe = await Recipe.create({
+      title: recipeTitle,
+      cuisine: recipeCuisine
+
+    })
+    console.log(newRecipe)
+
+  } catch (error){
+    console.log(error)
+  }
+}
+
+
 recipeApp();
-
-
-
-
