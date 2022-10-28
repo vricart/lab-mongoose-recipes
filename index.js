@@ -30,11 +30,14 @@ const recipeApp = async function() {
     console.log(`connected to ${x.connection.name}`)
 
     addRecipe('Cheesecake', 'Greek')
+    addManyRecipes();
 
   } catch (error) {
     console.log(error)
   }
 }
+
+recipeApp();
 
 
 
@@ -53,4 +56,23 @@ const addRecipe = async function(recipeTitle, recipeCuisine) {
 }
 
 
-recipeApp();
+
+const addManyRecipes = async function () {
+  try {
+    const manyRecipes = await Recipe.insertMany(data);
+    console.log(manyRecipes)
+
+  } catch (error){
+    console.log(error)
+  }
+}
+
+
+
+const updateRecipe = async function () {
+  try {
+
+  } catch (error) {
+    console.log(error)
+  }
+}
