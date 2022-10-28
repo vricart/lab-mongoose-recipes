@@ -34,6 +34,7 @@ const recipeApp = async function() {
     // addRecipe('Cheesecake', 'Greek')
     // addManyRecipes();
     // updateOneRecipe();
+    removeOneRecipe();
 
   } catch (error) {
     console.log(error)
@@ -43,45 +44,62 @@ const recipeApp = async function() {
 recipeApp();
 
 
+
 //ITERATION 2 CREATE A RECIPE
 
-// const addRecipe = async function(recipeTitle, recipeCuisine) {
-//   try {
-//     const newRecipe = await Recipe.create({
-//       title: recipeTitle,
-//       cuisine: recipeCuisine
+const addRecipe = async function(recipeTitle, recipeCuisine) {
+  try {
+    const newRecipe = await Recipe.create({
+      title: recipeTitle,
+      cuisine: recipeCuisine
 
-//     })
-//     console.log(newRecipe)
+    })
+    console.log(newRecipe)
 
-//   } catch (error){
-//     console.log(error)
-//   }
-// }
+  } catch (error){
+    console.log(error)
+  }
+}
+
 
 
 //ITERATION 3 INSERT MULTIPLE RECIPES
 
-// const addManyRecipes = async function () {
-//   try {
-//     const manyRecipes = await Recipe.insertMany(data);
-//     console.log(manyRecipes)
+const addManyRecipes = async function() {
+  try {
+    const manyRecipes = await Recipe.insertMany(data);
+    console.log(manyRecipes)
 
-//   } catch (error){
-//     console.log(error)
-//   }
-// }
+  } catch (error){
+    console.log(error)
+  }
+}
 
 
-// UPDATE RECIPE
 
-// const updateOneRecipe = async function () {
-//   try {
-//     const oneRecipe = await Recipe.updateOne({title: 'Rigatoni alla Genovese'}, {duration: 100 })
-//     console.log(oneRecipe)
-//     console.log('Yey Fixed!')
+//ITERATION 4 UPDATE RECIPE
 
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
+const updateOneRecipe = async function() {
+  try {
+    const oneRecipe = await Recipe.updateOne({title: 'Rigatoni alla Genovese'}, {duration: 100 })
+    console.log(oneRecipe)
+    console.log('Yey Fixed!')
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+
+//ITERATION 5 REMOVE A RECIPE
+
+const removeOneRecipe = async function() {
+  try {
+    const removeRecipe = await Recipe.deleteOne({title: 'Carrot Cake'})
+    console.log(removeRecipe)
+
+  } catch (error) {
+    console.log(error)
+  }
+}
