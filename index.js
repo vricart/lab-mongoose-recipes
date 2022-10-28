@@ -24,13 +24,16 @@ const MONGODB_URI = 'mongodb://localhost:27017/recipe-app';
 
 
 
+//CONNECTION
+
 const recipeApp = async function() {
   try {
     const x = await mongoose.connect(MONGODB_URI)
     console.log(`connected to ${x.connection.name}`)
 
-    addRecipe('Cheesecake', 'Greek')
-    addManyRecipes();
+    // addRecipe('Cheesecake', 'Greek')
+    // addManyRecipes();
+    // updateOneRecipe();
 
   } catch (error) {
     console.log(error)
@@ -40,39 +43,45 @@ const recipeApp = async function() {
 recipeApp();
 
 
+//ITERATION 2 CREATE A RECIPE
 
-const addRecipe = async function(recipeTitle, recipeCuisine) {
-  try {
-    const newRecipe = await Recipe.create({
-      title: recipeTitle,
-      cuisine: recipeCuisine
+// const addRecipe = async function(recipeTitle, recipeCuisine) {
+//   try {
+//     const newRecipe = await Recipe.create({
+//       title: recipeTitle,
+//       cuisine: recipeCuisine
 
-    })
-    console.log(newRecipe)
+//     })
+//     console.log(newRecipe)
 
-  } catch (error){
-    console.log(error)
-  }
-}
-
-
-
-const addManyRecipes = async function () {
-  try {
-    const manyRecipes = await Recipe.insertMany(data);
-    console.log(manyRecipes)
-
-  } catch (error){
-    console.log(error)
-  }
-}
+//   } catch (error){
+//     console.log(error)
+//   }
+// }
 
 
+//ITERATION 3 INSERT MULTIPLE RECIPES
 
-const updateRecipe = async function () {
-  try {
+// const addManyRecipes = async function () {
+//   try {
+//     const manyRecipes = await Recipe.insertMany(data);
+//     console.log(manyRecipes)
 
-  } catch (error) {
-    console.log(error)
-  }
-}
+//   } catch (error){
+//     console.log(error)
+//   }
+// }
+
+
+// UPDATE RECIPE
+
+// const updateOneRecipe = async function () {
+//   try {
+//     const oneRecipe = await Recipe.updateOne({title: 'Rigatoni alla Genovese'}, {duration: 100 })
+//     console.log(oneRecipe)
+//     console.log('Yey Fixed!')
+
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
