@@ -24,4 +24,18 @@ const MONGODB_URI = 'mongodb://localhost:27017/recipe-app';
 
 
 
+const recipeApp = async function() {
+  try {
+    const x = await mongoose.connect(MONGODB_URI)
+    console.log(`connected to ${x.connection.name}`)
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+recipeApp();
+
+
+
 
